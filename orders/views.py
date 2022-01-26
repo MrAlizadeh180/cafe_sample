@@ -29,8 +29,9 @@ class OrderDetail(generic.DetailView):
 
 class OrderICreate(generic.CreateView):
     model = OrderItem
-    fields = ['item', 'quantity']
+    fields = ['item', 'quantity', "order"]
     template_name = 'orders/asd.html'
+    success_url = "/menu/categories"
 
     # def post(self, request, *args, **kwargs):
     #     order = Order.objects.get(id=1)

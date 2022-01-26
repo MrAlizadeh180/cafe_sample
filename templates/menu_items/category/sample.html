@@ -12,5 +12,10 @@
                 </div>
             {% endfor %}
         </div>
+
+        <div>
+            <a href="{% url "create_order" %}">CreateOrder</a>
+            <a href="{% url "create_order_item" %}">Add to Order</a>
+        </div>
     {% endfor %}
 {% endblock %}
