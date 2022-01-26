@@ -6,6 +6,7 @@ from .models import Order
 
 class CrateOrder(generic.edit.CreateView):
     model = Order
+    fields = ['table']
 
 
 class OrderDetail(generic.DetailView):
