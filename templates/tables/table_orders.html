@@ -7,13 +7,10 @@
             <h3>Orders</h3>
             {% for order in table.all_orders %}
                 <h5>
-                    {{ order }}
+                    <a href="{% url "order_detail" order.id %}">
+                        {{ order }}
+                    </a>
                 </h5>
-{#                <ul style="text-decoration: none">#}
-{#                    <li>is_paid: {{ order.is_paid }}</li>#}
-{#                    <li>Status: {{ order.status }}</li>#}
-{#                    <li>Table: {{ order.table }}</li>#}
-{#                </ul>#}
             {% endfor %}
         </div>
     </ul>
