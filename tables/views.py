@@ -13,6 +13,14 @@ class TableDetail(generic.DetailView):
 
 class TableMoney(View):
     def get(self, request, pk: int):
-        money = Table.objects.get(id=pk).money
+        context = {"money": None}
+        return render(request, 'tables/table_money.html', context=context)
+
+    def post(self, request, pk: int):
+        date = request.POST.get('date')
+        print("ghble error!!")
+        table = Table.objects.get(id=pk)
+        money = table.money
+        print('money', money)
         context = {'money': money}
         return render(request, 'tables/table_money.html', context=context)

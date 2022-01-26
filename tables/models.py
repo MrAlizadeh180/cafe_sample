@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from django.db import models
 
@@ -47,4 +47,8 @@ class Table(BaseModel):
 
     @property
     def money(self, date: datetime = datetime.today()) -> int:
-        return sum(order_price.get_total_cost() for order_price in self.orders.filter(created=date))
+        price = sum(order.get_total_cost for order in self.all_orders())
+        print(price, "price!")
+        return price
+
+    #(created__range=[(date-timedelta(days=1)).__str__(), date.__str__()]))#

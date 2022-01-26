@@ -1,4 +1,13 @@
 {% extends 'layouts/_base.html' %}
 {% block body %}
     <h2>Table_Money: {{ money }}</h2>
+    {% if money %}
+        <h2>Money: {{ money }}</h2>
+    {% else %}
+        <form method="post">
+            {% csrf_token %}
+            <input type="datetime-local" name="date">
+            <input type='submit' value="Find">
+        </form>
+    {% endif %}
 {% endblock %}

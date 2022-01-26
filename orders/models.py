@@ -31,6 +31,7 @@ class Order(BaseModel):
 
     @property
     def get_total_cost(self):
+        print(sum(item.get_cost() for item in self.order_items.all()), "get total price")
         return sum(item.get_cost() for item in self.order_items.all())
 
 
