@@ -1,12 +1,15 @@
 {% extends 'layouts/_base.html' %}
+{% load menu_extra_filters %}
 {% block body %}
 
     {% for c in category_list %}
         <div class="bg-light text-warning">{{ c.name }}</div>
         <div class="d-flex">
             {% for item in c.menu_items %}
-                <div>
-
+                <div class="card">
+                    <img class="card-img-top" src="{{ item.image_url | set_image_src }}" alt="{{ item.name }}">
+                    <h3 class="card-title">{{ item.name }}</h3>
+                    <h4>{{ item.discount }}$</h4>
                 </div>
             {% endfor %}
         </div>
