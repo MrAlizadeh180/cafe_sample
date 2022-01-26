@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+from django.urls import reverse
 from model_utils import Choices
 
 from core.models import BaseModel
@@ -21,6 +22,9 @@ class Order(BaseModel):
 
     class Meta:
         ordering = ('-created',)
+
+    def get_absolute_url(self):
+        return reverse('order_detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return f'Order {self.id} status :{self.status}'

@@ -1,0 +1,14 @@
+{% extends 'layouts/_base.html' %}
+{% block body %}
+    <h2>Your order:</h2>
+    <ul>
+        <li>is_paid: {{ object.is_paid }}</li>
+        <li>Status: {{ object.status }}</li>
+        <li>Table: {{ object.table }}</li>
+    </ul>
+    <div>
+    {% for order_i in object.order_items %}
+        {{ order_i }}
+    {% endfor %}
+    </div>
+{% endblock %}
