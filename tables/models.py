@@ -47,8 +47,8 @@ class Table(BaseModel):
 
     @property
     def money(self, date: datetime = datetime.today()) -> int:
-        price = sum(order.get_total_cost for order in self.all_orders())
+        orders = self.orders.filter(created__range=[(date-timedelta(days=1)).__str__(), date.__str__()]).all()
+        price = sum(order.get_total_cost for order in orders)
         print(price, "price!")
         return price
 
-    #(created__range=[(date-timedelta(days=1)).__str__(), date.__str__()]))#
