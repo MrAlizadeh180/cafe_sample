@@ -23,7 +23,7 @@ class Order(BaseModel):
         ordering = ('-created',)
 
     def __str__(self):
-        return f'Order {self.id} status :{self.status} '
+        return f'Order {self.id} status :{self.status}'
 
     @property
     def get_total_cost(self):
