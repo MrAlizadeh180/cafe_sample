@@ -17,7 +17,7 @@ ORDER_STATUS = Choices(
 class Order(BaseModel):
     status = models.IntegerField(choices=ORDER_STATUS, default=ORDER_STATUS.UNPAID, verbose_name='Status')
     is_paid = models.BooleanField(default=False, verbose_name='Paid')
-    table = models.ForeignKey(Table, on_delete=models.PROTECT, verbose_name='Table')
+    table = models.ForeignKey(Table, on_delete=models.PROTECT, verbose_name='Table', related_name='orders')
 
     class Meta:
         ordering = ('-created',)
