@@ -47,4 +47,4 @@ class Table(BaseModel):
 
     @property
     def money(self, date: datetime = datetime.today()) -> int:
-        ...
+        return sum(order_price.get_total_cost() for order_price in self.orders.filter(created=date))
