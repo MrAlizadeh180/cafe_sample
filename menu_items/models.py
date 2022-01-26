@@ -29,7 +29,9 @@ class MenuItem(BaseModel):
     status = models.IntegerField(choices=ITEM_STATUS, default=ITEM_STATUS.AVAILABLE)
     price = models.PositiveIntegerField(verbose_name='Price')
     discount = models.PositiveIntegerField(verbose_name='Discount', default=0)
+    image_url = models.CharField(max_length=250, unique=True, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.name} Status:{self.status}"
+        return f"MenuItem {self.name}"
+
     ...

@@ -9,3 +9,8 @@ from .models import Category, MenuItem
 class MenuItemsList(ListView):
     model = MenuItem
     template_name = 'menu_items/menu_item/sample.html'
+
+
+class CategoryList(ListView):
+    model = Category
+    template_name = 'menu_items/category/sample.html'

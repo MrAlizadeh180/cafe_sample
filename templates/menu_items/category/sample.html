@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layouts/_base.html' %}
+{% block body %}
 
-</body>
-</html>
+    {% for c in category_list %}
+        <div class="bg-light text-warning">{{ c.name }}</div>
+        <div class="d-flex">
+            {% for item in c.menu_items %}
+                <div>
+
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}
