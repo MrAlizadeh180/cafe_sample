@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from menu_items import urls as menu_urls
 from orders import urls as order_urls
+from tables import urls as table_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('menu/', include(menu_urls)),
-    path('orders/', include(order_urls))
+    path('orders/', include(order_urls)),
+    path('tables/', include(table_urls))
 ]
